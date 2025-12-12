@@ -1,0 +1,48 @@
+so to add games
+
+____________________________________________
+{
+        id: 9001,
+        name: "Clumsy Bird",
+        author: "MelonJS",
+        authorLink: "https://melonjs.org",
+        url: "https://cdn.jsdelivr.net/gh/obastide/clumsy-bird@master/index.html",
+        cover: "https://cdn.jsdelivr.net/gh/obastide/clumsy-bird@master/data/img/background.png"
+      },
+____________________________________________
+      just make a new id for each new game. 
+      give it a name, auther, autherlink.
+      
+      url: the games url so it can me loaded
+      cover: the games piture url
+      
+      
+      
+      
+      -------------------------------------------
+      
+      
+      for gn math shortcuts
+      
+_________________________________________
+      {
+        id: 9004,
+        name: "Baldi",               // <-- what you see in Popular
+        _gnmathId: 466               // <-- REAL GN-Math ID (replace 123)
+        // author / authorLink will be copied from the real game
+      }
+_________________________________________
+
+id = new game
+name = the name
+_gnmathId = the id of the loaded game from the url
+      
+      
+      Make sure to add a comma after each game
+
+
+
+
+
+
+https://mercurygames-15327267.codehs.me/game36.html

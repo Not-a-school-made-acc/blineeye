@@ -1,0 +1,81 @@
+mysupercoolsource: {
+  name: "My Cool Source Name",                 // shows in the top bar
+  // Pick ONE of these three ways to load games:
+
+  // Way A) Load from a zones.json (like GN-Math)
+  url: "https://cdn.jsdelivr.net/gh/username/repo@main/zones.json",
+  coverURL: "https://cdn.jsdelivr.net/gh/username/repo@main/covers/",
+  htmlURL:  "https://cdn.jsdelivr.net/gh/username/repo@main/games/",
+
+  // Way B) Static list like UGS (just a huge array of filenames)
+  rawList: ["game1","game2","mario64","whatever"],
+
+  // Way C) Hard-coded games array (like Popular)
+  games: [
+    { id: 123, name: "Cool Game", url: "https://example.com/game.html", cover: "https://..." }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// For Way A (JSON file) – copy loadGNMath exactly
+async function loadMyCoolSource() {
+  try {
+    const resp = await fetch(sources.mysupercoolsource.url + "?t=" + Date.now());
+    const json = await resp.json();
+    sources.mysupercoolsource.games = json;
+    displayZones(json);
+  } catch (e) {
+    document.getElementById('games-grid').innerHTML = `<p style="color:red;text-align:center;">My Cool Source failed to load.</p>`;
+  }
+}
+
+// For Way B (static list like UGS) – copy initUGS exactly
+function initMyCoolSource() {
+  sources.mysupercoolsource.games = sources.mysupercoolsource.rawList.map(name => ({
+    id: "mycool_" + name,
+    name: name.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    url: name + ".html",           // change .html if your files are .htm or whatever
+    author: "My Cool Source",
+    authorLink: "#"
+  }));
+  displayZones(sources.mysupercoolsource.games);
+}
+
+
+
+
+
+
+
+
+
+
+
+else if (key === 'mysupercoolsource') {
+  // pick the right one:
+  await loadMyCoolSource();    // ← for JSON file
+  // OR
+  initMyCoolSource();          // ← for static list
+}
+
+
+
+
+
+
+
+
+
+
+
+<button class="source-btn" data-source="mysupercoolsource">My Cool Source Name</button>

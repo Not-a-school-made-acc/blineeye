@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSDelivr Piano</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mrcoles/javascript-piano@master/piano.css">
+</head>
+<body>
+
+<div id="piano"></div>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/gh/mrcoles/javascript-piano@master/jquery-1.7.1.min.js"></script>
+
+<!-- MUST LOAD FIRST: audio.js defines Notes -->
+<script src="https://cdn.jsdelivr.net/gh/mrcoles/javascript-piano@master/audio.js"></script>
+
+<!-- MUST LOAD AFTER audio.js: piano.js uses Notes -->
+<script src="https://cdn.jsdelivr.net/gh/mrcoles/javascript-piano@master/piano.js"></script>
+
+<script>
+  console.log("Piano loaded via jsDelivr!");
+</script>
+
+</body>
+</html>

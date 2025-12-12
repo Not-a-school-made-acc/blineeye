@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE TRUE BLIND-EYE - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+      <img src="https://codehs.com/uploads/af21d5fd8c13d045571208ffe26a39fb" alt="Logo" class="logo">
+      <h1>THE TRUE BLIND-EYE</h1>
+    </div>
+   <nav>
+  <ul>
+    <li onclick="window.open('https://requests-17166077.codehs.me/', '_blank')" 
+        tabindex="0" 
+        onkeypress="if(event.key==='Enter') window.open('https://requests-17166077.codehs.me/', '_blank')">
+      Request a Game
+    </li>
+    <li onclick="loadSection('games')" tabindex="0" onkeypress="if(event.key === 'Enter') loadSection('games')">Games</li>
+    <li onclick="loadSection('hacks')" tabindex="0" onkeypress="if(event.key === 'Enter') loadSection('hacks')">Hacks/Tools</li>
+    <li onclick="loadSection('credits')" tabindex="0" onkeypress="if(event.key === 'Enter') loadSection('credits')">Credits</li>
+  </ul>
+</nav>
+  </header>
+  <button id="home-button" hidden onclick="loadSection('home')">Home</button>
+  <button id="fullscreen-button" hidden onclick="toggleFullscreen()">Fullscreen</button>
+
+  <div id="content">
+    <!-- Summary (FIXED) -->
+    <p id="allSummary" style="text-align:center;color:red;margin:10px 0;font-size:1.2em;text-shadow:0 0 5px red;"></p>
+
+    <!-- Source Selector -->
+    <div id="source-selector" style="text-align:center; padding:40px 20px; display:none;">
+      <h2 style="color:red; text-shadow:0 0 10px red; font-size:2em;">PLEASE SELECT A GAME SOURCE</h2>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px;">
+        <button class="source-btn" data-source="gnmath">GN-Math</button>
+        <button class="source-btn" data-source="popular">Popular Games</button>
+      </div>
+    </div>
+    <!-- Games Grid -->
+    <div id="games-grid" style="display:none;"></div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- Credit footer -->
+  <footer id="games-credit" style="display:none; text-align:center; color:#666; font-size:0.8em; padding:10px;">
+     <a href="https://gn-math.github.io" target="_blank" style="color:red;"></a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js"></script>
+  <script src="script.js"></script>
+
+  <!-- ANTI-INSPECT SCRIPT (unchanged) -->
+  <script>
+  (function () {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', e => {
+          if (
+              e.key === 'F12' ||
+              (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C')) ||
+              (e.ctrlKey && e.key === 'u')
+          ) {
+              e.preventDefault();
+              closeTab();
+          }
+      });
+      let devtoolsOpen = false;
+      setInterval(() => {
+          if (window.outerHeight - window.innerHeight > 200 ||
+              window.outerWidth - window.innerWidth > 200) {
+              if (!devtoolsOpen) {
+                  devtoolsOpen = true;
+                  closeTab();
+              }
+          }
+      }, 500);
+      function closeTab() {
+          document.body.innerHTML = '<h1 style="color:red;text-align:center;">Nice try! Tab closed.</h1>';
+          setTimeout(() => {
+              window.open('', '_self').close();
+              window.close();
+              window.location = 'about:blank';
+          }, 200);
+      }
+  })();
+  </script>
+  
+
+</body>
+</html>
