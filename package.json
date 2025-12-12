@@ -1,0 +1,12 @@
+{
+  "name": "the-true-blind-eye",
+  "version": "1.0.0",
+  "description": "Gaming website with multiple game sources",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["games", "gaming"],
+  "author": "",
+  "license": "MIT"
+}
